@@ -1,17 +1,18 @@
+.caixa {
+    background-color: #3F51B5
+}
+
 .titulo {
-    color: green;
-    text-align: center;
+    color: white !important;
+    font-weight: bold !important;
 }
 
-.subtitulo {
-    color: rgb(0, 175, 117);
-    text-align: center;
+.botao {
+    border-color: white !important; 
+    background-color: #3F51B5;
+    color: white !important;
 }
 
-.imagem {
-    height: 400px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+.postagem {
+    background-color: white;
 }
