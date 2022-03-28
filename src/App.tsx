@@ -1,11 +1,13 @@
 import React from 'react';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import Navbar from './components/statics/navbar/Navbar';
 import Footer from './components/statics/footer/Footer';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
 import './App.css';
+
 
 
 function App() {
@@ -28,6 +30,10 @@ function App() {
 
             <Route path='/home'>
               <Home />
+            </Route>
+
+            <Route path='/cadastrousuario'>
+              <CadastroUsuario />
             </Route>
 
           </div>
