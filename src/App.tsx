@@ -3,7 +3,6 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/statics/navbar/Navbar';
 import Footer from './components/statics/footer/Footer';
-import Lista from './components/lista/Lista';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
 import './App.css';
@@ -17,7 +16,11 @@ function App() {
 
         <Switch>
 
-          <div >
+          <div style={{minHeight: '100vh'}}>
+
+            <Route exact path='/'>
+              <Login />
+            </Route>
 
             <Route path='/login'>
               <Login />
@@ -25,7 +28,6 @@ function App() {
 
             <Route path='/home'>
               <Home />
-              <Lista />
             </Route>
 
           </div>
