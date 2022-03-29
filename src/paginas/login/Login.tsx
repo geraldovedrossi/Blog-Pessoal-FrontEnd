@@ -17,6 +17,7 @@ function Login() {
         nome: "",
         usuario:"",
         senha:"",
+        foto: "",
         token:""
     })
 
@@ -48,7 +49,7 @@ function Login() {
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid alignItems='center' xs={6}>
+            <Grid item xs={6}>
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>

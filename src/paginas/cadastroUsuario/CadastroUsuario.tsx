@@ -15,7 +15,8 @@ function CadastroUsuario() {
             id: 0,
             nome: '',
             usuario: '',
-            senha: ''
+            senha: '',
+            foto: ''
         })
 
     const [userResult, setUserResult] = useState<User>(
@@ -23,7 +24,8 @@ function CadastroUsuario() {
             id: 0,
             nome: '',
             usuario: '',
-            senha: ''
+            senha: '',
+            foto: ''
         })
 
     useEffect(() => {
@@ -58,7 +60,7 @@ function CadastroUsuario() {
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='imagem2'></Grid>
-            <Grid item xs={6} alignItems='center'>
+            <Grid item xs={6}>
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
@@ -66,6 +68,7 @@ function CadastroUsuario() {
                         <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal'fullWidth />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
+                        <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='foto' label='foto' variant='outlined' name='foto' margin='normal' fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
                                 <Button variant='contained' color='secondary' className='btnCancelar'>
