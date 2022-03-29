@@ -24,16 +24,20 @@ function Navbar() {
                                 </Box>
                             </Box>
                         </Link>
+                        <Link to='/posts' className='text-decorator-none'>
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 postagens
                             </Typography>
                         </Box>
+                        </Link>
+                        <Link to='/temas' className='text-decorator-none'>
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 temas
                             </Typography>
                         </Box>
+                        </Link>
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 cadastrar tema

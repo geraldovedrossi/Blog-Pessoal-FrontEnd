@@ -9,8 +9,10 @@ import './CadastroUsuario.css';
 function CadastroUsuario() {
 
     let history = useHistory();
+
     const [confirmarSenha,setConfirmarSenha] = useState<String>("")
-    const [user, setUser] = useState<User>(
+
+    const [user, setUser] = useState<User>( //pega informação que o usuario digita
         {
             id: 0,
             nome: '',
@@ -19,7 +21,7 @@ function CadastroUsuario() {
             foto: ''
         })
 
-    const [userResult, setUserResult] = useState<User>(
+    const [userResult, setUserResult] = useState<User>( //pega resposta da requisição feita pro back-end
         {
             id: 0,
             nome: '',
@@ -28,30 +30,30 @@ function CadastroUsuario() {
             foto: ''
         })
 
-    useEffect(() => {
+    useEffect(() => { //se o id != 0, foi cadastrado com sucesso, logo pode ir logar oq cadastrou
         if (userResult.id != 0) {
             history.push("/login")
         }
     }, [userResult])
 
 
-    function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){
-        setConfirmarSenha(e.target.value)
+    function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){ 
+        setConfirmarSenha(e.target.value) //pega oq foi digitado em confirmarsenha e atualiza com a senha de cima
     }
 
 
-    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) { //espera o usuario clicar no campo de texto para disparar evento
 
-        setUser({
-            ...user,
-            [e.target.name]: e.target.value
+        setUser({ //
+            ...user, //espalha as informações digitadas no objeto user
+            [e.target.name]: e.target.value //target.name encontra o campo e atribui o valor de target.value
         })
 
     }
-    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
-        e.preventDefault()
-        if(confirmarSenha == user.senha){
-        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+    async function cadastrar(e: ChangeEvent<HTMLFormElement>) { //Form pois o evento vem de um formulario
+        e.preventDefault()//impede att de pagina
+        if(confirmarSenha === user.senha && user.senha.length >= 8){
+        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)//chama o endpoint do back-end / Olhar na service ln12
         alert('Usuario cadastrado com sucesso')
         }else{
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
@@ -62,10 +64,10 @@ function CadastroUsuario() {
             <Grid item xs={6} className='imagem2'></Grid>
             <Grid item xs={6}>
                 <Box paddingX={10}>
-                    <form onSubmit={onSubmit}>
+                    <form onSubmit={cadastrar}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
-                        <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal'fullWidth />
+                        <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' type='email' fullWidth />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
                         <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='foto' label='foto' variant='outlined' name='foto' margin='normal' fullWidth />
