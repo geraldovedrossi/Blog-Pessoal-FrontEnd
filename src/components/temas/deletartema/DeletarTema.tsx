@@ -14,7 +14,7 @@ function DeletarTema() {
     const [tema, setTema] = useState<Tema>()
 
     useEffect(() => {
-        if (token == "") {
+        if (token === "") {
             alert("Você precisa estar logado")
             history.push("/login")
     

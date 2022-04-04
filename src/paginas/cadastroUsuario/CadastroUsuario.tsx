@@ -31,7 +31,7 @@ function CadastroUsuario() {
         })
 
     useEffect(() => { //se o id != 0, foi cadastrado com sucesso, logo pode ir logar oq cadastrou
-        if (userResult.id != 0) {
+        if (userResult.id !== 0) {
             history.push("/login")
         }
     }, [userResult])
