@@ -1,3 +1,7 @@
 .titulo{
     font-weight: bold;
  }
+
+ .backgroundTab{
+     background-color: black !important;
+ }

@@ -4,7 +4,7 @@
 
 .imagem{
 
-    background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
+    background-image: url(https://i.imgur.com/9ru2RiS.jpg);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
@@ -12,6 +12,40 @@
     background-position: center;
 }
 
+.textosL{
+    font-weight: bold !important;
+    color: rgb(230,100,16) !important;
+}
+
 .textos1{
     font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+.button{
+    background-color: rgb(230,100,16) !important;
+    
+}
+
+.bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    border-radius: 3%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .textBoxL{
+    background-color: #FFFFFF !important;
+    opacity: 0.8 !important;
+    border-radius: 4% !important;
 }

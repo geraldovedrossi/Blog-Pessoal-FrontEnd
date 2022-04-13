@@ -13,7 +13,7 @@ function Navbar() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
 
-    //const token = store.token
+        //const token = store.token
     )
 
     const dispatch = useDispatch();
@@ -37,46 +37,49 @@ function Navbar() {
 
     var navbarComponent
 
-    if(token !== "") {
-        navbarComponent = <AppBar position="static">
-        <Toolbar variant="dense">
-            <Box className='cursor' >
-                <Typography variant="h5" color="inherit">
-                    BlogPessoal
-                </Typography>
-            </Box>
+    if (token !== "") {
+        navbarComponent = <AppBar position="static" className='boxNav'>
+            <Toolbar variant="dense" >
 
-            <Box display="flex" justifyContent="start">
-                <Link to='/home' className='text-decorator-none'>
-                    <Box display="flex" justifyContent="start">
+                <Box display="flex"  >
+
+                    <Link to="/home" className="text-decorator-none">
+                        <Box className='cursor'>
+                            <img className="Logo" src="https://i.imgur.com/1Y4hsO7.png" alt="LogoTipo"  height="35px" />
+                        </Box>
+
+                    </Link>
+                    <Link to='/home' className='text-decorator-none'>
+                        <Box display="flex" justifyContent="start">
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h5" color="inherit">
+                                    Blog do Mestre
+                                </Typography>
+                            </Box>
+                        </Box>
+                    </Link>
+
+                    <Link to='/posts' className='text-decorator-none'>
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
-                                home
+                                postagens
                             </Typography>
                         </Box>
-                    </Box>
-                </Link>
-                <Link to='/posts' className='text-decorator-none'>
-                    <Box mx={1} className='cursor'>
-                        <Typography variant="h6" color="inherit">
-                            postagens
-                        </Typography>
-                    </Box>
-                </Link>
-                <Link to='/temas' className='text-decorator-none'>
-                    <Box mx={1} className='cursor'>
-                        <Typography variant="h6" color="inherit">
-                            temas
-                        </Typography>
-                    </Box>
-                </Link>
-                <Link to='/formularioTema' className='text-decorator-none'>
-                <Box mx={1} className='cursor'>
-                    <Typography variant="h6" color="inherit">
-                        cadastrar tema
-                    </Typography>
-                </Box>
-                </Link>
+                    </Link>
+                    <Link to='/temas' className='text-decorator-none'>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                temas
+                            </Typography>
+                        </Box>
+                    </Link>
+                    <Link to='/formularioTema' className='text-decorator-none'>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                cadastrar tema
+                            </Typography>
+                        </Box>
+                    </Link>
 
                     <Box mx={1} className='cursor' onClick={goLogout}>
                         <Typography variant="h6" color="inherit">
@@ -84,15 +87,15 @@ function Navbar() {
                         </Typography>
                     </Box>
 
-            </Box>
+                </Box>
 
-        </Toolbar>
-    </AppBar>
+            </Toolbar>
+        </AppBar>
     }
 
     return (
         <>
-            { navbarComponent }
+            {navbarComponent}
         </>
     )
 }
